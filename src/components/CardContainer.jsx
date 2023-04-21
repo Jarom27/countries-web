@@ -2,7 +2,6 @@ import React from 'react'
 import Card from './Card'
 
 export default function CardContainer({countries,country_selected}) {
-    console.log(country_selected)
     return (
         <div className='container mx-auto row'>
             {countries.map((country,index)=> {

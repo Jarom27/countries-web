@@ -9,6 +9,8 @@ function App() {
   const URL = "https://restcountries.com/v3.1/all";
   const [countries,setCountries] = useState([]);
   const [country,setCountry] = useState("");
+  const [info,setInfo] = useState({});
+
   let country_filtered;
   useEffect(()=>{
       //Montamos los datos 
@@ -17,16 +19,15 @@ function App() {
         .then(response => setCountries(response))
   },[]);
   useEffect(()=>{
-    console.log(country)
     country_filtered = countries.filter( el => el.name.official == country)
-    console.log(country_filtered)
+    setInfo(country_filtered[0]);
   },[country])
   
   return (
     <>
       <Header/>
       {country === "" ? <ControlsContainer/> : ""}
-      {country === "" ? <CardContainer countries={countries} country_selected = {{country,setCountry}}/> : <CountryDetails info = {country_filtered}/>}
+      {country === "" ? <CardContainer countries={countries} country_selected = {{country,setCountry}}/> : <CountryDetails info = {info}/>}
       
     </>
   )
