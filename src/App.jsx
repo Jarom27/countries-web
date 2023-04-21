@@ -2,6 +2,7 @@ import Card from "./components/Card"
 import CardContainer from "./components/CardContainer"
 import ControlsContainer from "./components/ControlsContainer";
 import Header from "./components/Header";
+import { ThemeProvider } from "./context/ThemeContext";
 import './style.css'
 import { useEffect, useState } from "react"
 
