@@ -1,22 +1,27 @@
 import React, { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext'
+import CountryContext from '../context/CountryContext';
 
-export default function Card({country,country_selected}) {
+export default function Card({country}) {
     let {theme,handleTheme} = useContext(ThemeContext);
+    let {info,selectCountry} = useContext(CountryContext);
     const getCountry = (e)=>{
-        country_selected.setCountry(country.name.official);
+        selectCountry(country)
     }
     return (
       <div className={theme == 'dark' ? 'card col-lg-3 px-0 dark-mode-lighter text-white' : 'card col-lg-3 px-0'} onClick={getCountry}>
-          <img src={country.flags.svg} alt="" className='card-img-top object-fit-cover'/>
-          <div className='card-body'>
-              <h2 className='card-title fw-bold fs-4'>{country.name.official}</h2>
-              <div>
-                  <p><span className='sub-title-cards'>Population: </span>{country.population}</p>
-                  <p><span className='sub-title-cards'>Region: </span>{country.continents == "North America" || country.continents ==  "South America" ? "America" : country.continents}</p>
-                  <p><span className='sub-title-cards'>Capital: </span>{country.capital}</p>
-              </div>
-          </div>
+            <div className='img-object-fit card-img-top'>
+                <img src={country.flags.svg} alt="" className='object-fit-cover'/>
+            </div>
+            
+            <div className='card-body'>
+                <h2 className='card-title fw-bold fs-4'>{country.name.common}</h2>
+                <div>
+                    <p><span className='sub-title-cards'>Population: </span>{country.population.toLocaleString('en-US')}</p>
+                    <p><span className='sub-title-cards'>Region: </span>{country.continents == "North America" || country.continents ==  "South America" ? "America" : country.continents}</p>
+                    <p><span className='sub-title-cards'>Capital: </span>{country.capital}</p>
+                </div>
+            </div>
       </div>
   )
 }

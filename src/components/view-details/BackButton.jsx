@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import CountryContext from '../../context/CountryContext'
 
 export default function BackButton() {
-  return (
-    <button className='mt-3 btn '><ion-icon name="arrow-back-outline"></ion-icon> Back</button>
-  )
+    const {selectCountry}=useContext(CountryContext)
+    const backToHome= ()=>{
+        selectCountry(null)
+    }
+    return (
+        <button className='mt-3 btn ' onClick={backToHome}><ion-icon name="arrow-back-outline"></ion-icon> Back</button>
+    )
 }
