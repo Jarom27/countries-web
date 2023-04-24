@@ -3,8 +3,10 @@ import BackButton from './view-details/BackButton'
 import CountryContext from '../context/CountryContext'
 import ThemeContext from '../context/ThemeContext'
 import BorderTag from './view-details/BorderTag'
+import CountriesContext from '../context/CountriesContext'
 
-export default function CountryDetails({countries}) {
+export default function CountryDetails() {
+    const {countries} = useContext(CountriesContext)
     const {info} = useContext(CountryContext)
     const {theme} = useContext(ThemeContext)
     let languages = info.languages;
