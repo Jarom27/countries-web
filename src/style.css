@@ -23,16 +23,16 @@ body{
     font-weight: 600;
 }
 .light-mode-darker{
-    background-color: var(--bg-gray-lighter);
+    background-color: var(--bg-gray-lighter) !important;
 }
 .light-mode-lighter{
-    background-color: #ffffff;
+    background-color: #ffffff !important;
 }
 .dark-mode-darker{
-    background-color: var(--bg-blue-darker);
+    background-color: var(--bg-blue-darker) !important;
 }
 .dark-mode-lighter{
-    background-color: var(--bg-blue-dark-lighter) ;
+    background-color: var(--bg-blue-dark-lighter) !important;
 }
 .img-object-fit{
     aspect-ratio: 1.4/1;
