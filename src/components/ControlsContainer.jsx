@@ -5,7 +5,7 @@ import DropdownCountry from './DropdownCountry'
 export default function ControlsContainer() {
   return (
     <div className='container controls pt-4 mb-3'>
-        <div className='row justify-content-between'>
+        <div className='row justify-content-md-between controls'>
           <CountrySearchBar></CountrySearchBar>
           <DropdownCountry></DropdownCountry>
         </div>

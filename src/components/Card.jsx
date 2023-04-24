@@ -4,12 +4,12 @@ import CountryContext from '../context/CountryContext';
 
 export default function Card({country}) {
     let {theme,handleTheme} = useContext(ThemeContext);
-    let {info,selectCountry} = useContext(CountryContext);
+    let {selectCountry} = useContext(CountryContext);
     const getCountry = (e)=>{
         selectCountry(country)
     }
     return (
-      <div className={theme == 'dark' ? 'card col-lg-3 px-0 dark-mode-lighter text-white' : 'card col-lg-3 px-0'} onClick={getCountry}>
+      <div className={theme == 'dark' ? 'card col-lg-3 px-0 dark-mode-lighter text-white rounded-0' : 'card col-lg-3 px-0 rounded-0'} onClick={getCountry}>
             <div className='img-object-fit card-img-top'>
                 <img src={country.flags.png} alt="" className='object-fit-cover'/>
             </div>

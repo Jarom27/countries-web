@@ -21,7 +21,7 @@ function App() {
     return (
       <>
         <Header/>
-        {!info ? <HomeView countries={countries}/> : <CountryDetails/>}
+        {!info ? <HomeView countries={countries}/> : <CountryDetails countries={countries}/>}
       </>
     )
 }

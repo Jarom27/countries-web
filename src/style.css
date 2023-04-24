@@ -10,6 +10,9 @@ body{
     --bg-blue-darker : #202d36;
     --bg-blue-dark-lighter : #2b3743;
 }
+.card:hover{
+    cursor: pointer;
+}
 .nav-title{
     font-weight: 800;
 }
