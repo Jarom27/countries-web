@@ -25,7 +25,7 @@ export default function CountryDetails() {
                 <div className='col-md-6'>
                     <img src={info.flags.svg} className='img-fluid' alt= {info.flags.alt}></img>
                 </div>
-                <div className='row col-md-6'>
+                <div className='row col-md-6 row-gap-4'>
                     <h2 className='fw-bold col-12'>{info.name.common}</h2>
                     <div className='col-12 col-md-6'>
                         <p><span className='fw-bold'>Native name: </span>{getNativeName(info,languages_abreviations)}</p>

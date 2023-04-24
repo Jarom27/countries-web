@@ -6,6 +6,8 @@ export function CountriesProvider({children}) {
     const URL = "https://restcountries.com/v3.1/all";
     const [countries,setCountries] = useState([]);
     const [allCountries,setAllCountries] = useState([])
+    const [country_name,setCountryName]  = useState("")
+    const [continent,setContinent] = useState("");
     useEffect(()=>{
         //Montamos los datos 
         fetch(URL)
@@ -18,14 +20,19 @@ export function CountriesProvider({children}) {
     },[]);
     const countries_list = {
         countries,
-        filterCountriesByName(country_name){
-            setAllCountries(countries.filter( country => country.name.common.toLowerCase().includes(country_name.toLowerCase())))
-            console.log(allCountries)
+        filterCountriesByName(countryName){
+            setCountryName(countryName.toLowerCase())
+            setAllCountries(countries.filter(country =>{
+                return country.name.common.toLowerCase().includes(country_name) && country.continents[0].toLowerCase().includes(continent)
+            }))
+        },
+        filteredCountriesByContinent(continent_name){
+            setContinent(continent_name.toLowerCase())
+            setAllCountries(countries.filter(country =>{
+                return country.name.common.toLowerCase().includes(country_name) && country.continents[0].toLowerCase().includes(continent)
+            }))
         },
         getCountriesFiltered(){
-            // if(allCountries.length == 0){
-                
-            // }
             return allCountries;
         }
     }
