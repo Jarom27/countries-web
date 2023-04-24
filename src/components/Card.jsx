@@ -11,7 +11,7 @@ export default function Card({country}) {
     return (
       <div className={theme == 'dark' ? 'card col-lg-3 px-0 dark-mode-lighter text-white' : 'card col-lg-3 px-0'} onClick={getCountry}>
             <div className='img-object-fit card-img-top'>
-                <img src={country.flags.svg} alt="" className='object-fit-cover'/>
+                <img src={country.flags.png} alt="" className='object-fit-cover'/>
             </div>
             
             <div className='card-body'>

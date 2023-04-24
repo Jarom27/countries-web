@@ -4,8 +4,12 @@ import ThemeContext from '../context/ThemeContext'
 export default function CountrySearchBar() {
     const {theme} = useContext(ThemeContext)
     return (
-        <div className='col-md-4 col-12'>
-            <input type="text" name="" id="" placeholder='Search for a country...' className={theme == 'dark' ? 'dark-mode-lighter form-control text-white' : 'light-mode-lighter form-control'}/>
+        <div className=' col-12 col-md-4 '>
+            <div className='input-group'>
+                <span className = "material-symbols-outlined input-group-text light-mode-lighter">search</span>
+                <input type="text" name="" id="" placeholder='Search for a country...' className={theme == 'dark' ? 'dark-mode-lighter form-control text-white rounded-0' : 'light-mode-lighter form-control rounded-0'}/>
+            </div>
+            
         </div>
     )
 }

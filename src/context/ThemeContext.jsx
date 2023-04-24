@@ -11,10 +11,12 @@ export function ThemeProvider({children}) {
             if(e.target.value == "light"){
                 setTheme("dark")
                 document.getElementById("root").className = "dark-mode-darker"
+                document.body.style.backgroundColor = "#202d36"
             }
             else{
                 setTheme("light")
                 document.getElementById("root").className = "light-mode-darker"
+                document.body.style.backgroundColor = "#fafafa"
             }
         }
     }
