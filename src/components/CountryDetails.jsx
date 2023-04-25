@@ -2,13 +2,15 @@ import React, { useContext } from 'react'
 import BackButton from './view-details/BackButton'
 import CountryContext from '../context/CountryContext'
 import ThemeContext from '../context/ThemeContext'
-import BorderTag from './view-details/BorderTag'
 import CountriesContext from '../context/CountriesContext'
+import BorderContainer from './view-details/BorderContainer'
 
 export default function CountryDetails() {
     const {countries} = useContext(CountriesContext)
     const {info} = useContext(CountryContext)
     const {theme} = useContext(ThemeContext)
+
+    console.log(info.borders)
     let languages = info.languages;
     let languages_abreviations = Object.keys(languages)
     let currencies = info.currencies;
@@ -17,13 +19,15 @@ export default function CountryDetails() {
         currency = [Object.values(currency)]
         return " "+currency[index][index].name;
     });
-    console.log(currencies)
+    languages = Object.values(languages);
+
+
     return (
         <div className={theme == 'light' ? 'container controls' : 'container controls text-white'}>
             <BackButton></BackButton>
             <div className='row mt-5'>
                 <div className='col-md-6'>
-                    <img src={info.flags.svg} className='img-fluid' alt= {info.flags.alt}></img>
+                    <img src={info.flags.svg} className='img-fluid h-75' alt= {info.flags.alt}></img>
                 </div>
                 <div className='row col-md-6 row-gap-4'>
                     <h2 className='fw-bold col-12'>{info.name.common}</h2>
@@ -38,25 +42,17 @@ export default function CountryDetails() {
                     <div className='col-12 col-md-6'>
                         <p><span className='fw-bold'>Top level domain: </span>{[info.tld]}</p>
                         <p><span className='fw-bold'>Currencies: </span>{currencies}</p>
-                        <p><span className='fw-bold'>Languages: </span>{Object.values(languages)}</p>
+                        <p><span className='fw-bold'>Languages: </span>{languages.toString()}</p>
                     </div>
+                    
+                    {info.borders !== undefined ? <BorderContainer borders = {info.borders} countries = {countries}></BorderContainer> : ""}
                 </div>
-                <div className='row'>
-                        
-                </div>
+                
             </div>
         </div>
     )
 }
-function getBorderCountry(countries,border_code){
-    let border = ""
-    countries.forEach(country =>{
-        if(country.cca3.includes(border_code)){
-            border = country.cca3;
-        }
-    })
-    return border;
-}
+
 function getNativeName(info,languages_abreviations){
     let {nativeName} = info.name;
     nativeName = nativeName[languages_abreviations[0]]
