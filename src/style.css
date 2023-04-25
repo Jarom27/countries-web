@@ -48,3 +48,6 @@ body{
 .border-tag{
     height: fit-content;
 }
+.continent:hover{
+    color: var(--bg-blue-darker) !important;
+}

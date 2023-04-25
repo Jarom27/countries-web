@@ -18,19 +18,25 @@ export function CountriesProvider({children}) {
             })
           
     },[]);
+    useEffect(()=>{
+        setAllCountries(countries.filter(country =>{
+            return country.name.common.toLowerCase().includes(country_name) && country.continents[0].toLowerCase().includes(continent)
+        }))
+    },[continent])
+    useEffect(()=>{
+        setAllCountries(countries.filter(country =>{
+            return country.name.common.toLowerCase().includes(country_name) && country.continents[0].toLowerCase().includes(continent)
+        }))
+    },[country_name])
     const countries_list = {
         countries,
         filterCountriesByName(countryName){
             setCountryName(countryName.toLowerCase())
-            setAllCountries(countries.filter(country =>{
-                return country.name.common.toLowerCase().includes(country_name) && country.continents[0].toLowerCase().includes(continent)
-            }))
         },
         filteredCountriesByContinent(continent_name){
             setContinent(continent_name.toLowerCase())
-            setAllCountries(countries.filter(country =>{
-                return country.name.common.toLowerCase().includes(country_name) && country.continents[0].toLowerCase().includes(continent)
-            }))
+            
+            console.log(allCountries)
         },
         getCountriesFiltered(){
             return allCountries;

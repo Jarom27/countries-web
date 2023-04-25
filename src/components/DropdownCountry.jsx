@@ -14,11 +14,11 @@ export default function DropdownCountry() {
               Filter By Region
           </button>
           <ul className={theme == 'light' ? "dropdown-menu w-100 light-mode-lighter":"dropdown-menu w-100 dark-mode-lighter text-white"}>
-              <li className='dropdown-item' onClick={handleContinent}>Africa</li>
-              <li className='dropdown-item' onClick={handleContinent}>America</li>
-              <li className='dropdown-item' onClick={handleContinent}>Asia</li>
-              <li className='dropdown-item' onClick={handleContinent}>Europe</li>
-              <li className='dropdown-item' onClick={handleContinent}>Oceania</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Africa</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>America</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Asia</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Europe</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Oceania</li>
           </ul>
       </div>
     )
