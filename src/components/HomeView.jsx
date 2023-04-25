@@ -5,7 +5,7 @@ export default function HomeView({countries}) {
   return (
     <>
         <ControlsContainer></ControlsContainer>
-        <CardContainer countries={countries}></CardContainer>
+        <CardContainer></CardContainer>
     </>
   )
 }

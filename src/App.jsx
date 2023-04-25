@@ -3,25 +3,20 @@ import ControlsContainer from "./components/ControlsContainer";
 import CountryDetails from "./components/CountryDetails";
 import Header from "./components/Header";
 import HomeView from "./components/HomeView";
+import { CountriesProvider } from "./context/CountriesContext";
 import CountryContext from "./context/CountryContext";
 import './style.css';
 import { useContext, useEffect, useState } from "react";
 
 function App() {
-    const URL = "https://restcountries.com/v3.1/all";
-    const [countries,setCountries] = useState([]);
     const {info} = useContext(CountryContext);
-    useEffect(()=>{
-        //Montamos los datos 
-        fetch(URL)
-          .then(response => response.json())
-          .then(response => setCountries(response))
-    },[]);
-    
     return (
       <>
+      <CountriesProvider>
         <Header/>
-        {!info ? <HomeView countries={countries}/> : <CountryDetails countries={countries}/>}
+          {!info ? <HomeView /> : <CountryDetails/>}
+      </CountriesProvider>
+        
       </>
     )
 }

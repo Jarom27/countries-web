@@ -1,17 +1,24 @@
 import React, { useContext } from 'react'
 import ThemeContext from '../context/ThemeContext'
+import CountriesContext from '../context/CountriesContext'
 
 export default function DropdownCountry() {
     let {theme} = useContext(ThemeContext)
+    let {filteredCountriesByContinent} = useContext(CountriesContext);
+    function handleContinent(e){
+        filteredCountriesByContinent(e.target.textContent)
+    }
     return (
       <div className = {theme == 'dark' ? "dropdown col-md-2 dark-mode-lighter pe-0 container ms-0 me-1" : "dropdown col-2 light-mode-lighter pe-0 container ms-0 me-1"}>
-          <button className = {theme == 'dark' ? "w-100 btn dropdown-toggle px-0 text-center text-white" : "w-100 btn dropdown-toggle px-0 text-end"} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <button className = {theme == 'dark' ? "w-100 btn dropdown-toggle px-0 text-center text-white" : "w-100 btn dropdown-toggle px-0 text-center"} type="button" data-bs-toggle="dropdown" aria-expanded="false">
               Filter By Region
           </button>
-          <ul className="dropdown-menu">
-              <li><a className="dropdown-item" href="#">America</a></li>
-              <li><a className="dropdown-item" href="#">Another action</a></li>
-              <li><a className="dropdown-item" href="#">Something else here</a></li>
+          <ul className={theme == 'light' ? "dropdown-menu w-100 light-mode-lighter":"dropdown-menu w-100 dark-mode-lighter text-white"}>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Africa</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>America</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Asia</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Europe</li>
+              <li className={theme == 'light' ? 'dropdown-item' : "dropdown-item text-white continent"} onClick={handleContinent}>Oceania</li>
           </ul>
       </div>
     )

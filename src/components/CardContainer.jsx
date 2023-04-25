@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Card from './Card'
+import CountriesContext from '../context/CountriesContext'
 
-export default function CardContainer({countries,country_selected}) {
+export default function CardContainer() {
+    const {countries,getCountriesFiltered} = useContext(CountriesContext)
     return (
-        <div className='container container-md mx-auto row row-gap-5'>
-            {countries.map((country,index)=> {
-                return <Card key = {index} country = {country} country_selected={country_selected}></Card>
+        <div className='container-fluid gx-2 column-gap-4 row-gap-5 mx-auto row d-flex flex-column flex-lg-row justify-content-center'>
+            {getCountriesFiltered().map((country,index)=> {
+                return <Card key = {index} country = {country}></Card>
             })}
         </div>
     )
