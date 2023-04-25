@@ -45,3 +45,6 @@ body{
     color: #ffffff;
     background-color: var(--bg-blue-dark-lighter);
 }
+.border-tag{
+    height: fit-content;
+}
